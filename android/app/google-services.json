@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "678867826842",
+    "project_id": "carritocopmprastul",
+    "storage_bucket": "carritocopmprastul.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:678867826842:android:ade1a01149d75e18e60723",
+        "android_client_info": {
+          "package_name": "com.example.carrito_de_compras"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "678867826842-d0s118bb73rr9g5sgtd27qk5ev73ac53.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9cjoM-gYBmIOECyw_qvbAraMLL3vY--E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "678867826842-d0s118bb73rr9g5sgtd27qk5ev73ac53.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
