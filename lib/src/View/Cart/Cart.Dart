@@ -22,6 +22,8 @@ class _CartState extends State<Cart> {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
+    List data = [];
+
     return Scaffold(
       appBar: appBarCart(context),
       body: Stack(
@@ -50,6 +52,8 @@ class _CartState extends State<Cart> {
                   }
 
                   widget.listcart[index].addAll(quantity);
+
+                  data.add(widget.listcart[index]);
                   return Container(
                     width: width,
                     margin: EdgeInsets.symmetric(
@@ -78,8 +82,7 @@ class _CartState extends State<Cart> {
                                     horizontal: 10, vertical: 5),
                                 child: WidgetFont(
                                     textAlign: TextAlign.center,
-                                    text:
-                                        widget.listcart[index]['id'].toString(),
+                                    text: data[index]['id'].toString(),
                                     size: 15,
                                     color: Colors.redAccent,
                                     fontWeight: FontWeight.w500),
@@ -104,7 +107,7 @@ class _CartState extends State<Cart> {
                                     horizontal: 10, vertical: 5),
                                 child: WidgetFont(
                                     textAlign: TextAlign.center,
-                                    text: widget.listcart[index]['name'],
+                                    text: data[index]['name'],
                                     size: 18,
                                     color: Colors.redAccent,
                                     fontWeight: FontWeight.w500),
@@ -134,18 +137,18 @@ class _CartState extends State<Cart> {
                                       icon: Icon(Icons.remove),
                                       onPressed: () {
                                         setState(() {
-                                          if (widget.listcart[index]
-                                                  ['quantity'] !=
-                                              0) {
-                                            widget.listcart[index]
-                                                ['quantity']--;
+                                          if (data[index]['quantity'] != 0) {
+                                            data[index]['quantity']--;
+                                          }
+                                          if (data[index]['quantity'] == 0) {
+                                            data[index].remove(index);
+                                            print(data.length);
                                           }
                                         });
                                       },
                                       color: Colors.yellow,
                                     ),
-                                    Text(
-                                        '${widget.listcart[index]['quantity']}',
+                                    Text('${data[index]['quantity']}',
                                         style: new TextStyle(
                                             fontWeight: FontWeight.bold,
                                             fontSize: 22.0,
@@ -154,7 +157,7 @@ class _CartState extends State<Cart> {
                                       icon: Icon(Icons.add),
                                       onPressed: () {
                                         setState(() {
-                                          widget.listcart[index]['quantity']++;
+                                          data[index]['quantity']++;
                                         });
                                       },
                                       color: Colors.yellow,
@@ -179,8 +182,7 @@ class _CartState extends State<Cart> {
                 onTap: () {
                   showDialog(
                       context: context,
-                      builder: (context) =>
-                          alertcart(context, widget.listcart));
+                      builder: (context) => alertcart(context, data));
                 },
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 15, vertical: 8),

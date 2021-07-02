@@ -86,79 +86,83 @@ Widget alertcart(BuildContext context, dynamic listcart) {
               itemCount: listcart.length,
               itemBuilder: (context, index) {
                 dynamic data = listcart[index];
-                return Container(
-                    margin: EdgeInsets.symmetric(vertical: 5),
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Container(
-                                width: width * 0.3,
-                                child: WidgetFont(
-                                    textAlign: TextAlign.start,
-                                    text: 'Producto:',
-                                    size: 18,
-                                    color: Colors.grey[600],
-                                    fontWeight: FontWeight.w600)),
-                            Container(
-                                width: width * 0.2,
-                                child: WidgetFont(
-                                    textAlign: TextAlign.end,
-                                    text: data['name'],
-                                    size: 18,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w600)),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Container(
-                                width: width * 0.3,
-                                child: WidgetFont(
-                                    textAlign: TextAlign.start,
-                                    text: 'Cantidad:',
-                                    size: 18,
-                                    color: Colors.grey[600],
-                                    fontWeight: FontWeight.w600)),
-                            Container(
-                                width: width * 0.2,
-                                child: WidgetFont(
-                                    textAlign: TextAlign.end,
-                                    text: '22',
-                                    size: 18,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w600)),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Container(
-                                width: width * 0.3,
-                                child: WidgetFont(
-                                    textAlign: TextAlign.start,
-                                    text: 'SkU:',
-                                    size: 18,
-                                    color: Colors.grey[600],
-                                    fontWeight: FontWeight.w600)),
-                            Row(
-                              children: [
-                                Container(
-                                    width: width * 0.2,
-                                    child: WidgetFont(
-                                        textAlign: TextAlign.end,
-                                        text: data['sku'].toString(),
-                                        size: 18,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.w600)),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
-                    ));
+                if (data['quantity'] == 0) {
+                  return Container();
+                } else {
+                  return Container(
+                      margin: EdgeInsets.symmetric(vertical: 5),
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Container(
+                                  width: width * 0.3,
+                                  child: WidgetFont(
+                                      textAlign: TextAlign.start,
+                                      text: 'Producto:',
+                                      size: 18,
+                                      color: Colors.grey[600],
+                                      fontWeight: FontWeight.w600)),
+                              Container(
+                                  width: width * 0.2,
+                                  child: WidgetFont(
+                                      textAlign: TextAlign.end,
+                                      text: data['name'],
+                                      size: 18,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w600)),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Container(
+                                  width: width * 0.3,
+                                  child: WidgetFont(
+                                      textAlign: TextAlign.start,
+                                      text: 'Cantidad:',
+                                      size: 18,
+                                      color: Colors.grey[600],
+                                      fontWeight: FontWeight.w600)),
+                              Container(
+                                  width: width * 0.2,
+                                  child: WidgetFont(
+                                      textAlign: TextAlign.end,
+                                      text: data['quantity'].toString(),
+                                      size: 18,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w600)),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Container(
+                                  width: width * 0.3,
+                                  child: WidgetFont(
+                                      textAlign: TextAlign.start,
+                                      text: 'SkU:',
+                                      size: 18,
+                                      color: Colors.grey[600],
+                                      fontWeight: FontWeight.w600)),
+                              Row(
+                                children: [
+                                  Container(
+                                      width: width * 0.2,
+                                      child: WidgetFont(
+                                          textAlign: TextAlign.end,
+                                          text: data['sku'].toString(),
+                                          size: 18,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.w600)),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ],
+                      ));
+                }
               },
               separatorBuilder: (BuildContext context, int index) {
                 return Padding(
